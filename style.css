@@ -1,0 +1,175 @@
+:root {
+  /* ### Primary */
+  --dark-cyan: hsl(158, 36%, 37%);
+  --very-dark-cyan: hsl(158, 37%, 20%);
+  --cream: hsl(30, 38%, 92%);
+
+/* ### Neutral */
+
+  --very-dark-blue: hsl(212, 21%, 14%);
+  --dark-grayish-blue: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+
+  --ff-accent: 'Fraunces', serif;
+  --ff-base: 'Montserrat', sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3{
+  line-height: 1;
+}
+
+/* General styling */
+
+body {
+  font-family: var(--ff-base);
+  font-size: 0.875rem;
+  background-color: var(--cream);
+
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  margin: 1rem;
+}
+
+/* Utilities */
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* button */
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  font-size: 0.9125rem;
+
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.button[data-icon="shopping-cart"]::before{
+  content: '';
+  background-image: url('images/icon-cart.svg');
+  width: 15px;
+  height: 16px;
+}
+ 
+.button:is(:hover, :focus){
+  background-color: var(--very-dark-cyan);
+  
+}
+
+/* Product styles */
+.product {
+  --content-padding: 1.5rem;
+  --content-spacing: 1rem;
+
+  display: grid;
+  overflow: hidden;
+
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  max-width: 600px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    --content-padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product__content {
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+  color: var(--dark-grayish-blue);
+}
+
+.product__category {
+  font-size: 0.8125rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.product__title {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--very-dark-blue);
+}
+
+.price-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product__price {
+  color: var(--dark-cyan);
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+}
+
+.product__original-price {
+  font-size: 0.75px;
+  text-decoration: line-through;
+}
+
+.attribution { 
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%);
+}
+
